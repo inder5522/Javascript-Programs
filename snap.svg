@@ -1,0 +1,147 @@
+<html>
+<title>SNAP.SVG</title>
+    
+<body>
+<svg id="svg" height ="900" width="1800"  ></svg>
+<script src="snap/snap.svg-min.js"></script>
+<script>
+	    var s=Snap("#svg");                                                         
+		var background=s.rect(0,0,1800,800);	
+		    background.attr({fill:"blue",fillOpacity:"0.2"})
+		
+		var ecloud=s.ellipse(300,220,150,25);
+		    ecloud.attr({fill:"skyblue",fillOpacity:0.6});
+		 function cloudmotion (cx)
+		{  
+			var newx = (cx===200)?500:200;
+			    ecloud.animate({cx:newx},2500,function(){cloudmotion(newx)});
+     	}
+		        cloudmotion(200);
+		
+		var ecloud1=s.ellipse(500,160,190,30);
+		    ecloud1.attr({fill:"skyblue",fillOpacity:0.6});
+		var cloudmotion1 = function(cx)
+		{ 
+			var newx = (cx===700)?450:700;
+			    ecloud1.animate({cx:newx},2800,function(){cloudmotion1(newx)});
+     	}
+		        cloudmotion1(700);
+		
+		var ecloud2=s.ellipse(750,175,200,30);
+		    ecloud2.attr({fill:"skyblue",fillOpacity:0.6});
+		var cloudmotion2= function(cx)
+		{  
+			var newx = (cx===730)?900:730;
+			    ecloud2.animate({cx:newx},2800,function(){cloudmotion2(newx)});
+     	}
+		        cloudmotion2(730);
+		
+		var ecloud3=ecloud2.clone();
+		ecloud3.transform("t300 50");
+		var cloudmotion3= function(cx)
+		{   
+		    var newx = (cx===950)?850:950;
+			    ecloud3.animate({cx:newx},2800,function(){cloudmotion3(newx)});
+     	}
+		        cloudmotion3(950);
+		var ecloud4=ecloud3.clone();
+		    ecloud4.transform("t600 0")
+        var cloudmotion4 = function(cx)
+		{  
+	        var newx = (cx===900)?1100:900;
+			    ecloud4.animate({cx:newx},2800,function(){cloudmotion4(newx)});
+     	}
+		        cloudmotion4(900);
+		
+		var lyn=s.path("M 120 710 C 270 330 310 330 470 710 ");
+		    lyn.attr({fill:"brown",fillOpacity:0.5,strokeWidth:5,stroke:"pink",strokeOpacity:"0.2"});
+		var wall=s.rect(210,585,170,140,20,20);
+		    wall.attr({fill:"purple" ,fillOpacity:0.4,stroke:"pink",strokeWidth:20,strokeOpacity:0.6});
+		
+		var cloud2=s.ellipse(1350,210,50,30);
+		var sun=s.circle(1300,200,50);
+		var cloud3=s.ellipse(1260,215,50,35);
+		var scloud=s.circle(1300,200,50)
+		var cloud=s.group(cloud2,sun,scloud,cloud3);
+		    cloud.attr({fill:"grey"});
+		    cloud.hover(change1,change2);
+		
+		function change1()
+		{   scloud.animate({r:60},1000);
+			scloud.animate(scloud.attr({fill:"yellow",fillOpacity:0.9,strokeWidth:2,stroke:"orange",strokeOpacity:0.5}));
+			sun.animate({r:90},500);
+			sun.animate(sun.attr({fill:"transparent",strokeWidth:45,stroke:"yellow",strokeOpacity:0.7,strokeDasharray:"6 20",strokeDashoffset:"10"}));
+		    cloud3.animate({cx:1220},1500);
+		    cloud3.animate(cloud3.attr({fill:"skyblue",fillOpacity:"0.6"}));
+		     cloud2.animate({cx:1380},1500);
+		    cloud2.animate(cloud2.attr({fill:"skyblue",fillOpacity:0.6}))
+		}
+		function change2()
+		{   sun.animate({r:50},1000);
+            sun.animate(sun.attr({fill:"grey",strokeWidth:0,fillOpacity:"1.0"}));			
+	        scloud.animate({r:50},1000);
+		    scloud.animate(scloud.attr({fill:"grey",strokeWidth:"0"}));
+		    cloud3.animate({cx:1260},1500);
+		    cloud3.animate(cloud3.attr({fill:"grey",fillOpacity:"1.0"}));
+		    cloud2.animate({cx:1350},1500);
+		    cloud2.animate(cloud2.attr({fill:"grey",fillOpacity:1}))
+		}
+		var cloud11=s.circle(250,150,50);
+		var cloud12=s.ellipse(300,160,50,30);
+		var cloud13=s.ellipse(210,160,50,35);
+		var cloud21=s.group(cloud11,cloud12,cloud13);
+		    cloud21.attr({fill:"grey",strokeWidth:0});
+		 
+		var cloudc1=cloud21.clone();
+		var cloudc2=cloud21.clone();
+	        cloudc1.transform("T 1300 0");
+		    cloudc2.transform("T400 20");
+				
+		var rctngle=s.rect(20,740,1760,30,10,10);
+            rctngle.attr({fill:"green",fillOpacity:"0.5"});
+		
+		var rctngle2=s.rect(20,710,1760,30,10,10);
+		    rctngle2.attr({fill:"lightgreen"}); 
+		
+		var leaves=s.ellipse(85,580,50,70);
+	        leaves.attr({fill:"green",fillOpacity:0.7})
+	 	var stem=s.rect(70,610,30,100,10,10)
+	        stem.attr({fill:"brown",fillOpacity:"0.7"})
+	    var tree=s.group(leaves,stem);
+		var clonetree1=tree.clone();
+		var clonetree2=tree.clone();
+		var clonetree3=tree.clone();
+		var stem2=s.rect(1500,550,35,160,20,20);
+		    stem2.attr({fill:"brown",fillOpacity:"0.8"});
+		var leaves2=s.ellipse(1515,500,80,100);
+		    leaves2.attr({fill:"green",fillOpacity:0.7});
+		
+	        clonetree1.transform("t1570 0");
+		    clonetree2.transform("t480 0");
+		    clonetree3.transform("t1300 0")
+		
+		var rctngle3=s.rect(600,690,600,20,20,20);
+		     rctngle3.attr({fill:"purple" ,fillOpacity:"0.3",strokeWidth:"3",stroke:"purple",strokeOpacity:"0.3"});
+		var rctngle4=s.rect(650,660,500,30,20,20);
+		    rctngle4.attr({fill:"pink",stroke:"purple",strokeWidth:"4",strokeOpacity:0.3});
+		var leg1=s.polygon(730,660,760,660,900,360);
+		var leg2=s.polygon(1040,660,1070,660,900,360);
+            legs=s.group(leg1,leg2);
+		    legs.attr({fill:"yellow",fillOpacity:0.7});
+		var wheel1=s.circle(900,360,200);
+		    wheel1.attr({fill:"none",strokeWidth:20,stroke:"red",strokeOpacity:0.6});
+		var wheel2=s.circle(900,360,220);
+            wheel2.attr({fill:"none",strokeWidth:4,stroke:"red",strokeOpacity:0.5});
+        var wheel3=s.circle(900,360,100);
+		    wheel3.attr({fill:"none",strokeOpacity:"0.5",strokeWidth:"200",stroke:"red",strokeDasharray:"3 30",strokeDashoffset:"20"});
+		var centre=s.circle(900,360,25);
+		    centre.attr({fill:"yellow",fillOpacity:0.7,stroke:"yellow",strokeWidth:10,strokeOpacity:"0.8"});
+        var wheel=s.group(wheel1,wheel2,wheel3);
+		    wheel.click(rotate)
+   function rotate()
+		   {
+		       Snap.animate(0,5000,function(value){wheel3.attr({ 'strokeDashoffset': value })},50000);
+		   }
+</script>
+</body>
+</html>
